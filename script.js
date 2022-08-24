@@ -12,14 +12,18 @@ function playRound(playerSelection, computerSelection){
     const computer = getComputerChoice();
     const player = prompt().toLowerCase();
 
-    if ((computer == "rock" && player == "scissors") || (computer == "scissors" && player == "paper") || (computer == "paper" && player == "rock")) {
-        computerScore++;
-        return "Computer won!";
-    } else if ((computer == "scissors" && player == "rock") || (computer == "paper" && player == "scissors") || (computer == "rock" && player == "paper")){
-        userScore++;
-        return "You won!";
+    if (player.includes(["rock", "paper", "scissors"])){
+        if ((computer == "rock" && player == "scissors") || (computer == "scissors" && player == "paper") || (computer == "paper" && player == "rock")) {
+            computerScore++;
+            return "Computer won!";
+        } else if ((computer == "scissors" && player == "rock") || (computer == "paper" && player == "scissors") || (computer == "rock" && player == "paper")){
+            userScore++;
+            return "You won!";
+        } else {
+            return "Tie game!";
+        }
     } else {
-        return "Tie game!";
+        return "Wrong value!";
     }
 }
 
@@ -29,11 +33,12 @@ function game() {
         console.log(playRound());
         console.log("User: " + userScore + "; Computer: " + computerScore);
     }
+
     if (userScore > computerScore){
         console.log("You won! Congratulations!!!");
     } else if (userScore < computerScore){
         console.log("Oh no, computer won!");
     } else {
-        console.log("Tie game!");
+        console.log("Tie game! Let's play again?");
     }
 }
