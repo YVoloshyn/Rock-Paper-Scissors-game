@@ -12,7 +12,8 @@ let userScore = 0,
 
 let btnRock = document.querySelector(".rock"),
     btnPaper = document.querySelector(".paper"),
-    btnScissors = document.querySelector(".scissors");
+    btnScissors = document.querySelector(".scissors"),
+    allButtons = document.querySelectorAll("button");
 
 btnRock.onclick = () => playRound("rock");
 btnPaper.onclick = () => playRound("paper");
@@ -50,8 +51,14 @@ function playRound(playerSelection){
 //Function to run 5 games and define the winner
 function checkScores() {    
     if (userScore == 5){
+        btnRock.style.display = "none";
+        btnPaper.style.display = "none";
+        btnScissors.style.display = "none";
         return paragraph.textContent = "You won! Congratulations!!!";
     } else if (computerScore == 5){
+        btnRock.style.display = "none";
+        btnPaper.style.display = "none";
+        btnScissors.style.display = "none";
         return paragraph.textContent = "Oh no, computer won!";
     } else {
         return false;
