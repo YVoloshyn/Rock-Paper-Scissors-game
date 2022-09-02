@@ -1,0 +1,39 @@
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; 
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.scores {
+    display: flex;
+    flex-direction:row;
+}
+
+.userTotal, .computerTotal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gameResult {
+    display: flex;
+    justify-content: center;
+}
+

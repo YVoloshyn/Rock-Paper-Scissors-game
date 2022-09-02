@@ -1,29 +1,46 @@
-let userScore = 0, computerScore = 0;
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("userScores").value = userScore;
+    document.getElementById("computerScores").value = computerScore;
+});
+
+const scoresSection = document.querySelector('.gameResult'),
+    paragraph = document.createElement('p'); 
+    scoresSection.appendChild(paragraph);
+
+let userScore = 0, 
+    computerScore = 0;
+
+let btnRock = document.querySelector(".rock"),
+    btnPaper = document.querySelector(".paper"),
+    btnScissors = document.querySelector(".scissors");
+
+btnRock.onclick = () => playRound("rock");
+btnPaper.onclick = () => playRound("paper");
+btnScissors.onclick = () => playRound("scissors");
 
 // Return random variant of computer
 function getComputerChoice() {
-    const arr = ["Rock", "Paper", "Scissors"];
+    const arr = ["rock", "paper", "scissors"];
     const random = arr[Math.floor(Math.random() * arr.length)];
-    return random.toLowerCase();
+    return random;
 }
 
 //Single round of the game
-function playRound(playerSelection, computerSelection){
-    const computer = getComputerChoice();
-    const player = prompt().toLowerCase();
+function playRound(playerSelection){
+    let computer = getComputerChoice();
+    let player = playerSelection;
 
-    if (player.includes(["rock", "paper", "scissors"])){
-        if ((computer == "rock" && player == "scissors") || (computer == "scissors" && player == "paper") || (computer == "paper" && player == "rock")) {
-            computerScore++;
-            return "Computer won!";
-        } else if ((computer == "scissors" && player == "rock") || (computer == "paper" && player == "scissors") || (computer == "rock" && player == "paper")){
-            userScore++;
-            return "You won!";
-        } else {
-            return "Tie game!";
-        }
+    if ((computer == "rock" && player == "scissors") || (computer == "scissors" && player == "paper") || (computer == "paper" && player == "rock")) {
+        computerScore++;
+        document.getElementById("computerScores").value = computerScore;
+        return paragraph.textContent = "Computer won!";
+        // return alert("Computer won!");
+    } else if ((computer == "scissors" && player == "rock") || (computer == "paper" && player == "scissors") || (computer == "rock" && player == "paper")){
+        userScore++;
+        document.getElementById("userScores").value = userScore;
+        return paragraph.textContent = "You won!";
     } else {
-        return "Wrong value!";
+        return paragraph.textContent = "Tie game!";
     }
 }
 
