@@ -11,17 +11,20 @@ input[type=number]::-webkit-outer-spin-button {
 body {
     display: flex;
     justify-content: center;
+    font-family: Kalam;
 }
 
 .wrapper{
     display: flex;
     flex-direction: column;
     gap: 25px;
+    align-items: center;
 }
 
 .buttons {
     display: flex;
     justify-content: space-between;
+    gap: 50px;
 }
 
 .scores {
